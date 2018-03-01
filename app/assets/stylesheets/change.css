@@ -819,11 +819,11 @@ body.page_93{
 }
 
 @media (max-width: 479px){
-	#header_16ac0c77e __$.asm-sticky{
+	#header_16ac0c77e .asm-sticky{
 		position:absolute;
 		height:130px;
 	}
-	#header_16ac0c77e __$.asm-sticky > .w-container{
+	#header_16ac0c77e.asm-sticky > .w-container{
 		padding-top:50px;
 		padding-bottom:50px;
 	}
