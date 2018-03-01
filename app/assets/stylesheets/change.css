@@ -590,7 +590,7 @@ body.asm-page a.burger-box{
 .asm-category-filters.main-filters li:last-child:after{
 	display:none;
 }
-.asm-category-filters __$.main-filters li:nth-last-child(2):after{
+.asm-category-filters.main-filters li:nth-last-child(2):after{
 	content:'&';
 }
 .asm-category-filters.main-filters li.w-current a{
