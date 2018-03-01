@@ -1,0 +1,144 @@
+<style>
+div.note{
+ 	padding:20px;
+}
+h1{
+	padding:10px;
+}
+h3{
+	padding:10px;
+}
+.main_div{
+	margin:10px;
+	padding:20px;
+	line-height: 1.3em;
+}
+
+
+</style>
+
+
+<div class="main_div">
+
+	<div class="note">
+		<h1>Instagram Integration</h1>
+		<pre>
+			The Instagram API Platform can be used to build non-automated, authentic, high-quality apps and services that
+			Help individuals share their own content with 3rd party apps.
+			Help brands and advertisers understand, manage their audience and media rights.
+			Help broadcasters and publishers discover content, get digital rights to media, and share media with proper attribution
+
+			Instagram Sample integrates basic scope of instagram API endpoints.To make the integration modular a gem has been created for the implementation. For the request/response cycle have used HTTParty and hashie.
+			PFB the details on using the gem.
+		</pre>
+	</div>
+
+
+	<div class="note">
+		<h3>Instaimplement Gem</h3>
+		<pre>
+			This gem is based on API endpoints as mentioned in https://www.instagram.com/developer/
+			Based on oauth2 the gem first authenticates the authorization server,gets an access token then resources from the resource server are requested
+
+			<b>Limitation</b>: The gem only can hit at endpoints with basic scope as other scopes in instagram need a permission.  
+
+			<b>Github Link</b>: <a href="https://github.com/basicsaki/instaimplement">https://github.com/basicsaki/instaimplement</a>
+		</pre>
+	</div>
+
+
+	<div class="note">
+		<h3>Gem Code Example</h3>
+		<pre>
+			## Installation
+
+			Add this line to your application's Gemfile:
+
+				$ gem 'instaimplement', :git => 'https://github.com/basicsaki/instaimplement.git'
+
+			And then execute:
+
+			    $ bundle
+
+			Or install it yourself as:
+
+			    $ gem install instaimplement
+
+			## Usage
+
+			To install the files related with the gem 
+
+				$ rails g instaimplement:models
+				$ rake db:migrate
+
+			To initiate a new access token
+
+			    client = Instaimplement::Connect.new(ENV[:client_id],ENV[:client_token],ENV[:callback_url])
+			    redirect_to client.authorization_url
+
+			This will give you the code with which an access token can be generated
+			The code can be accessed at callback url
+
+				access_token = client.get_access_token( params[:code] )
+
+
+			#Requests
+
+			For endpoints with basic scope
+			Here count is the number of images that is requested from instagram side and next url is the pagination link.
+
+				request:  images = client.recent_media(count)
+				response: {data: images,next_url: "pagination_url" }
+
+
+			To get logged in user information
+
+				client.information
+		</pre>
+	</div>
+
+
+<h1>Future Scope</h1>
+
+	<div class="note">
+		<h3>RoadMap</h3>
+		<pre>
+			Since new instagram API is graph.
+			Complete integration of new APIs from instagram coming soon.
+		</pre>
+	</div>
+
+
+	<div class="note">
+		<h3>Instagram Graph API</h3>
+		<pre>
+			As per their documentation we will need a business account to get this integration up and running.
+
+			"An API for accessing data in large- and medium-sized Instagram Business Accounts.
+
+			The Instagram Graph API allows you to programmatically access Instagram Business Accounts so you can more easily manage media objects, view comments and metadata, and get insights and metrics with custom built apps.
+
+			If you are building apps for Instagram Non-Business Accounts, please use the Instagram Platform API instead"
+
+			Graph API and business links for instagram
+
+			<a href="https://developers.facebook.com/docs/instagram-api/overview">https://developers.facebook.com/docs/instagram-api/overviews</a>
+
+			<a href="https://business.instagram.com/getting-started?locale=en_GB">https://business.instagram.com/getting-started?locale=en_GB</a>
+
+			<a href="https://www.outboundengine.com/blog/how-to-set-up-an-instagram-business-account/">https://www.outboundengine.com/blog/how-to-set-up-an-instagram-business-account/</a>
+
+			<a href="https://www.facebook.com/business/help/502981923235522">https://www.facebook.com/business/help/502981923235522</a>
+		</pre>
+	</div>
+
+	<div class="note">
+		<h3>Other Resources/Links</h3>
+		<pre>
+			Instagram Developer Link: <a href="https://www.instagram.com/developer/">https://www.instagram.com/developer/</a>
+			API deprication: <a href='https://stackoverflow.com/questions/46313375/instagram-bans-access-to-its-api'>https://stackoverflow.com/questions/46313375/instagram-bans-access-to-its-api</a>
+			Reddit link for new integration using graph: <a href="https://www.reddit.com/r/rails/comments/7ugyuz/help_newbie_how_to_use_instagram_graph_api/">https://www.reddit.com/r/rails/comments/7ugyuz/help_newbie_how_to_use_instagram_graph_api/</a>
+		</pre>
+	</div>
+
+</div>

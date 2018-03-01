@@ -1,0 +1,30 @@
+
+<div class="pics">
+	<div class="user_profile">
+		<div class="pull-left">
+			<img src=<%= @user_info.profile_picture%> class="img-circle">
+		</div>
+		<div>
+			<h2 class="user_details"><%= @user_info.username%></h2>
+			<h4 class="user_details"><%= @user_info.counts.media%> Images
+			  <%= @user_info.counts.follows%> Followers
+			  <%= @user_info.counts.followed_by%> Follows
+			</h4>
+		</div>
+	</div>
+
+	<div style="clear:both;"></div>
+	<hr />
+
+	<div class="media">
+		<% @user_recent_media.each do |media_item| %>
+			<div class="image_media">
+				<img src=<%= media_item.images.low_resolution.url %>>
+				<br/>
+				<br/>
+				<i class="glyphicon glyphicon-heart red"></i><%= media_item.likes[:count]%>
+			</div>
+		<% end%>
+	</div>
+
+</div>

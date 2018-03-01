@@ -1,0 +1,14 @@
+<div class="navbar navbar-default navbar-static-top" style="margin-bottom:0px;">
+	<div class="container">
+		<a class="navbar-brand" href="/"></a>
+		<div class="navbar-collapse collapse navbar-responsive-collapse">
+			<ul class="nav_list">
+				<% if logged_in? %>
+				<li><%= link_to "User Pics",pages_user_pics_path%></li>
+				<li><%= link_to "Integration Details",pages_integration_path%></li>
+				<li><%= link_to "Logout",sessions_disconnect_path%></li>
+				<%end%>
+			</ul>
+		</div>
+	</div>
+</div>

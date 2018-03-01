@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root 'pages#home'
+
+  get "sessions/connect"
+  get "sessions/callback"
+  get "sessions/disconnect"
+
+  get 'pages/integration'
+  get 'pages/user_pics'
+
 end
