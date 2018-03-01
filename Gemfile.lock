@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/basicsaki/instaimplement.git
-  revision: 4c677843ca0c697b488215f9563aba23d358e525
+  revision: b831385639625c1bb419c0e378107f104eb7fd44
   specs:
-    instaimplement (0.1.1)
+    instaimplement (0.1.5)
       hashie (~> 3.5.7)
       httparty (~> 0.16.0)
 
