@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   end
 
   def user_pics
-    @user_recent_media = client.recent_media(-1)[:data]
+    @user_recent_media = client.recent_media(50)[:data]
     @user_info = client.information
   end
 
